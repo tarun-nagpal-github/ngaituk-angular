@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
+
+.bg-light {
+  background-color: #286090 !important;
+}
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #fff;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+.navbar-light .navbar-brand {
+  color: #fff;
+}
+.logout {
+  background-color: transparent;
+  color: #fff;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+}
+.navbar-light .navbar-toggler {
+  color: #fff;
+  border-color: #fff;
+}
+.fa.fa-navicon {
+  color: white;
+}
+.jumbotron {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+/*--------------- Form Page------------------- */
+#main {
+  padding-top: 20px;
+}
