@@ -10,9 +10,12 @@ import { JobListingComponent } from "./job-listing/job-listing.component";
 
 import { Ng2SmartTableModule } from "ng2-smart-table";
 import { DataTableModule } from "angular2-datatable";
+import { ContractorsComponent } from './contractors/contractors.component';
+import { WorkersComponent } from './workers/workers.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, JobListingComponent],
+  declarations: [AppComponent, DashboardComponent, JobListingComponent, ContractorsComponent, WorkersComponent, ComingSoonComponent],
   imports: [
     BrowserModule,
     CollapseModule.forRoot(),

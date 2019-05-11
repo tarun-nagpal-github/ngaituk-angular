@@ -1,6 +1,6 @@
 <header id="head">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">Ngaituk</a>
+      <a class="navbar-brand"[routerLink]="['dashboard']">Ngaituk</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <!-- <span class="navbar-toggler-icon"></span> -->
         <span class="navbar-toggler-icon">   
@@ -15,8 +15,8 @@
                   TimeSheet 
                   <span class="sr-only">(current)</span></a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="Form.html">Add</a>
-                      <a class="dropdown-item" href="List.html"> List</a>
+                      <a class="dropdown-item" [routerLink]="['coming-soon']"  >Add</a>
+                      <a class="dropdown-item" [routerLink]="['coming-soon']"> List</a>
                     </div>
           </li>
           
@@ -25,8 +25,8 @@
               Contractors
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="Form.html">Add</a>
-              <a class="dropdown-item" href="List.html"> List</a>
+              <a class="dropdown-item" [routerLink]="['contractors']">Add</a>
+              <a class="dropdown-item" [routerLink]="['contractors']"> List</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -34,8 +34,8 @@
                 Workers
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="Form.html">Add</a>
-                  <a class="dropdown-item" href="List.html"> List</a>
+                  <a class="dropdown-item" [routerLink]="['workers']">Add</a>
+                  <a class="dropdown-item" [routerLink]="['workers']"> List</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -43,8 +43,8 @@
                 Jobs
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="Form.html">Add</a>
-                  <a class="dropdown-item" href="List.html"> List</a>
+                  <a class="dropdown-item" [routerLink]="['job-list']">Add</a>
+                  <a class="dropdown-item" [routerLink]="['job-list']"> List</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -52,8 +52,8 @@
                 Summary
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="Form.html">Add</a>
-                  <a class="dropdown-item" href="List.html"> List</a>
+                  <a class="dropdown-item" [routerLink]="['coming-soon']">Add</a>
+                  <a class="dropdown-item" [routerLink]="['coming-soon']"> List</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -61,8 +61,8 @@
                 User/Site
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="Form.html">Add</a>
-                <a class="dropdown-item" href="List.html"> List</a>
+                <a class="dropdown-item" [routerLink]="['coming-soon']">Add</a>
+                <a class="dropdown-item" [routerLink]="['coming-soon']"> List</a>
               </div>
             </li>
           

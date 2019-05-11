@@ -1,38 +1,4 @@
-<!-- <div class="jumbotron" style="height:100vh;">          
+<div class="jumbotron" style="height:100vh;">          
   <h1>Welcome to NGAI Tukairangi Online</h1> 
   <p>Please choose the options from the Menu to get started !</p> 
-</div> -->
-
-<div class="container">
-<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
-  <thead>
-  <tr>
-      <th style="width: 40%">
-          <mfDefaultSorter by="name">Name</mfDefaultSorter>
-      </th>
-      <th style="width: 30%">
-          <mfDefaultSorter by="gender">Gender</mfDefaultSorter>
-      </th>
-      <th style="width: 30%">
-          <mfDefaultSorter by="company">company</mfDefaultSorter>
-      </th>
-    
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of mf.data">
-      <td>{{item.name}}</td>
-      <td>{{item.gender}}</td>
-      <td class="text-right">{{item.company}}</td>
-     
-  </tr>
-  </tbody>
-  <tfoot>
-  <tr>
-      <td colspan="4">
-          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-      </td>
-  </tr>
-  </tfoot>
-</table>
 </div>
