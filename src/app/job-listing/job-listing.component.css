@@ -1,3 +1,7 @@
 .ng2-smart-action-delete-delete {
   margin-left: 10px;
 }
+
+body {
+  display: none;
+}
