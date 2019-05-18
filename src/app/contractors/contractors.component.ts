@@ -19,6 +19,12 @@ export class ContractorsComponent implements OnInit {
         name: {
           title: "Name"
         },
+        phone: {
+          title: "Phone"
+        },
+        email: {
+          title: "Email Address"
+        },
         address: {
           title: "Address"
         }
@@ -26,10 +32,34 @@ export class ContractorsComponent implements OnInit {
     };
 
     this.data = [
-      { id: "1", name: "Pasla Ltd", address: "Tauranga" },
-      { id: "2", name: "Pukemapu Services", address: "Tauranga" },
-      { id: "3", name: "Hradie Hort", address: "Te Puke" },
-      { id: "4", name: "aaa", address: "aaa" }
+      {
+        id: "1",
+        name: "Pasla Ltd",
+        address: "Tauranga",
+        phone: "9876543210",
+        email: "john.doe@gmail.com"
+      },
+      {
+        id: "2",
+        name: "Pukemapu Services",
+        address: "Tauranga",
+        phone: "9876543210",
+        email: "john.doe@gmail.com"
+      },
+      {
+        id: "3",
+        name: "Hradie Hort",
+        address: "Te Puke",
+        phone: "9876543210",
+        email: "john.doe@gmail.com"
+      },
+      {
+        id: "4",
+        name: "aaa",
+        address: "aaa",
+        phone: "9876543210",
+        email: "john.doe@gmail.com"
+      }
     ];
   }
 }
