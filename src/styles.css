@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css";
-
+#head{
+border-bottom: 3px solid red;}
 .bg-light {
-  background-color: #286090 !important;
+  background-color: #0071BB !important;
 }
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.active,
@@ -22,7 +23,12 @@
 .navbar-light .navbar-brand {
   color: #fff;
 }
+.collapse.show {
 
+  display: block;
+  background-color: #339933;
+
+}
 .logout {
   background-color: transparent;
   color: #fff;

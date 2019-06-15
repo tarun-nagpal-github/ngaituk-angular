@@ -10,18 +10,27 @@ import { JobListingComponent } from "./job-listing/job-listing.component";
 
 import { Ng2SmartTableModule } from "ng2-smart-table";
 import { DataTableModule } from "angular2-datatable";
-import { ContractorsComponent } from './contractors/contractors.component';
-import { WorkersComponent } from './workers/workers.component';
-import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { ContractorsComponent } from "./contractors/contractors.component";
+import { WorkersComponent } from "./workers/workers.component";
+import { ComingSoonComponent } from "./coming-soon/coming-soon.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, JobListingComponent, ContractorsComponent, WorkersComponent, ComingSoonComponent],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    JobListingComponent,
+    ContractorsComponent,
+    WorkersComponent,
+    ComingSoonComponent
+  ],
   imports: [
     BrowserModule,
     CollapseModule.forRoot(),
     AppRoutingModule,
     Ng2SmartTableModule,
-    DataTableModule
+    DataTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
