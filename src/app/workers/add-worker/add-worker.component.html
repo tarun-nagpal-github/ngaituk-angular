@@ -1,84 +1,55 @@
- <!-- <div class="container">
-  
-    <div class="row border-bottom" style="padding: 1%">
-       <div class="col-10">
-          <h4>Add new Worker </h4>
-       </div>
-       <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/workers']"> Worker List</a></div>
-    </div>
-    
-    <form [formGroup]="workerForm" (ngSubmit)="onSubmit()">
-    
-    <div class="form-row">
-       <div class="col">
-          <input type="text" name="f_name" formControlName="f_name" class="form-control" placeholder="First name">
-       </div>
-       <div class="col">
-          <input type="text" name="l_name"  formControlName="l_name" class="form-control" placeholder="Last name">
-       </div>
-    </div>
-   
-    <div class="form-row">
-       <div class="col">
-           <input type="text" name="f_name" class="form-control" placeholder="First name">  
-          <select id="inputState" formControlName="contarctor" name="contarctor"  class="form-control">
-             <option selected>Choose contarctor...</option>
-             <option value="1">One</option>
-             <option value="1">OneOne</option>
-              
-          </select>
-       </div>
-       <div class="col">
-          <select id="inputState" name="v_type"   formControlName="v_type"  class="form-control">
-             <option selected value="1">Visa Type</option>
-             <option value="1">One</option>
-             <option value="1">OneOne</option>
-             
-          </select>
-       </div>
-    </div>
-    
-    <div class="form-row">
-       <div class="col">
-          <input type="text" name="v_exp" class="form-control" formControlName="v_type" placeholder="Visa Expiry">     
-       </div>
-       <div class="col">
-          <input type="text" name="d_o_b" class="form-control"  formControlName="d_o_b" placeholder="Date of Birth">     
-       </div>
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!workerForm.valid">Submit</button>
-    </form>
- </div>
--->
-
 <div class="container">
-    <h1>Hero Form</h1>
-    {{diagnostic}}
-
-    <form #heroForm="ngForm">
+    
+    <div class="row border-bottom" style="padding: 1%">
+        <div class="col-10">
+           <h4>Add new Worker </h4>
+        </div>
+        <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/workers']"> Worker List</a></div>
+     </div>
+    {{diagnostic}} 
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="model.name"  #name="ngModel" name="name" required >
+        <label for="firstName">firstName</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="model.firstName"  #name="ngModel" name="firstName" required >
         <br>TODO: remove this: {{name.className}}
-        <div [hidden]="name.valid || name.pristine"     class="alert alert-danger">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
             Name is required
         </div>
       </div>
 
       <div class="form-group">
-        <label for="alterEgo">Alter Ego</label>
-        <input type="text" class="form-control" [(ngModel)]="model.alterEgo" name="alterEgo" id="alterEgo">
+        <label for="lastName">lastName</label>
+        <input type="text" class="form-control" [(ngModel)]="model.lastName" name="lastName" id="lastName">
       </div>
 
       <div class="form-group">
-          <label for="power">Hero Power</label>
-          <select class="form-control" id="power" required [(ngModel)]="model.power" name="power">
-            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+          <label for="contractor">contractor</label>
+          <select class="form-control" id="contractor" required [(ngModel)]="model.contractor" name="contractor">
+            <option *ngFor="let pow of contractors" [value]="pow">{{pow}}</option>
           </select>
         </div>
 
-      
-      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+        <div class="form-group">
+            <label for="employeeId">Employee Id</label>
+            <input type="text" class="form-control" [(ngModel)]="model.employeeId" name="employeeId" id="employeeId">
+        </div>
 
+       <div class="form-group">
+          <label for="contractor">Visa Type</label>
+          <select class="form-control" id="visaType" required [(ngModel)]="model.visaType" name="visaType">
+            <option *ngFor="let pow of visaType" [value]="pow">{{pow}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="visaExpiry">Visa Expiry</label>
+            <input type="text" class="form-control" [(ngModel)]="model.visaExpiry" name="visaExpiry" id="visaExpiry">
+        </div>
+
+        <div class="form-group">
+            <label for="visaExpiry">Date Of Birth</label>
+            <input type="text" class="form-control" [(ngModel)]="model.dateOfBirth" name="dateOfBirth" id="dateOfBirth">
+        </div> 
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>     
     </form>
 </div>
