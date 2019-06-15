@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "./../services/api.service";
+import { AddWorkerComponent } from "./add-worker/add-worker.component";
 @Component({
   selector: "app-workers",
   templateUrl: "./workers.component.html",
@@ -10,9 +11,7 @@ export class WorkersComponent implements OnInit {
   foo: any;
   workers: any[];
   workersOld: any[];
-  constructor(private apiService: ApiService) {
-    this.foo = "Bar";
-  }
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.workers = [];

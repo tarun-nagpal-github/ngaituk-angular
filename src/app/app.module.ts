@@ -14,6 +14,10 @@ import { ContractorsComponent } from "./contractors/contractors.component";
 import { WorkersComponent } from "./workers/workers.component";
 import { ComingSoonComponent } from "./coming-soon/coming-soon.component";
 import { HttpClientModule } from "@angular/common/http";
+import { AddWorkerComponent } from "./workers/add-worker/add-worker.component";
+import { FormsModule } from "@angular/forms";
+
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { HttpClientModule } from "@angular/common/http";
     JobListingComponent,
     ContractorsComponent,
     WorkersComponent,
-    ComingSoonComponent
+    ComingSoonComponent,
+    AddWorkerComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,9 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     Ng2SmartTableModule,
     DataTableModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
