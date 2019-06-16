@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, Subscribable } from "rxjs";
-import { map } from "rxjs-compat/operator/map";
+// import  { Headers, RequestOptions}  from "@angular/common/http";
+
 @Injectable({
   providedIn: "root"
 })
@@ -22,12 +23,19 @@ export class ApiService {
     console.log("Before Submit ddd");
     console.log(body);
     console.log("Before Submit");
-    let headers = new Headers({ "Content-Type": "application/json" });
-    let options = new RequestOptions({ headers: headers });
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+
+    // let headers = new Headers({ "Content-Type": "application/json" });
+    // let options = new RequestOptions({ headers: headers });
     return this.httpClient.post(
       `${this.apiURL}/workers/createWorker.php`,
       body,
-      options
+      httpOptions
     );
   }
 }

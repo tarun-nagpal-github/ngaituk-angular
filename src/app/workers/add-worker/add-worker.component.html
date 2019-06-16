@@ -6,12 +6,12 @@
         </div>
         <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/workers']"> Worker List</a></div>
      </div>
-    {{diagnostic}} 
+    
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
       <div class="form-group">
         <label for="firstName">firstName</label>
         <input type="text" class="form-control" id="firstName" [(ngModel)]="model.firstName"  #name="ngModel" name="firstName" required >
-        <br>TODO: remove this: {{name.className}}
+        
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
             Name is required
         </div>
