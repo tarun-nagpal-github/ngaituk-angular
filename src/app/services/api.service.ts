@@ -7,7 +7,8 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiService {
-  apiURL: string = "http://localhost/angular-project/";
+  // apiURL: string = "http://localhost/angular-project/";
+  apiURL: string = "http://api.ngaituk.online/";
   constructor(private httpClient: HttpClient) {}
 
   private extractData(res: Response) {
@@ -20,18 +21,13 @@ export class ApiService {
   }
 
   addWorker(body): Observable<any> {
-    console.log("Before Submit ddd");
-    console.log(body);
-    console.log("Before Submit");
-
     const httpOptions = {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
-      })
+      }),
+      responseType: "text" as "json"
     };
 
-    // let headers = new Headers({ "Content-Type": "application/json" });
-    // let options = new RequestOptions({ headers: headers });
     return this.httpClient.post(
       `${this.apiURL}/workers/createWorker.php`,
       body,
@@ -39,5 +35,3 @@ export class ApiService {
     );
   }
 }
-
-// http://localhost/angular-project/

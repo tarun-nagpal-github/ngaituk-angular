@@ -21,23 +21,18 @@ export class AddWorkerComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    // this.apiService.addWorker(this.model);
     console.warn("Form Submittted");
     this.apiService.addWorker(this.model).subscribe(
       res => {
-        // alert("Record Added Successfully");
-        // this.router.navigate(["/workers"]);
+        alert("Record Added Successfully");
+        this.router.navigate(["/workers"]);
         console.log("Response");
         console.log(res);
       },
       error => {
-        console.log("error");
+        console.log("error Logged");
         console.log(error);
-        alert("Record Added Successfully");
-        this.router.navigate(["/workers"]);
       }
     );
-    // console.log(this.model);
   }
 }
