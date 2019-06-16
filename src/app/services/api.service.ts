@@ -15,11 +15,20 @@ export class ApiService {
   }
 
   getWorkers(): Observable<any> {
-    // return this.httpClient
-    //   .get(`${this.apiURL}/workers/getWorkers.php`)
-    //   .pipe(map(this.extractData));
-
     return this.httpClient.get(`${this.apiURL}/workers/getWorkers.php`);
+  }
+
+  addWorker(body): Observable<any> {
+    console.log("Before Submit ddd");
+    console.log(body);
+    console.log("Before Submit");
+    let headers = new Headers({ "Content-Type": "application/json" });
+    let options = new RequestOptions({ headers: headers });
+    return this.httpClient.post(
+      `${this.apiURL}/workers/createWorker.php`,
+      body,
+      options
+    );
   }
 }
 
