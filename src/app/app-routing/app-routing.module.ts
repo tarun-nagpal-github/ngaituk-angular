@@ -5,8 +5,13 @@ import { JobListingComponent } from "../job-listing/job-listing.component";
 import { ContractorsComponent } from "../contractors/contractors.component";
 import { WorkersComponent } from "../workers/workers.component";
 import { ComingSoonComponent } from "../coming-soon/coming-soon.component";
+import { AddWorkerComponent } from "../workers/add-worker/add-worker.component";
 
 const routes: Routes = [
+  {
+    path: "add-worker",
+    component: AddWorkerComponent
+  },
   {
     path: "workers",
     component: WorkersComponent

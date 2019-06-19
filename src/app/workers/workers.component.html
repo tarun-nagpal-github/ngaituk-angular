@@ -1,45 +1,31 @@
 
-<div class="container">     
-    <div class="pb-2 mt-4 mb-2 border-bottom">
-          <h4>Workers List</h4>    
+  
+ <div class="container">
+   
+    <div class="row border-bottom" style="padding: 1%">
+        <div class="col-10">  <h4  >Workers List </h4>  </div>
+        <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-worker']">Add Worker</a></div>  
     </div>
-  <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
-    <thead>
-    <tr>
-        <th style="width: 20%">
-            <mfDefaultSorter by="name">Employee ID</mfDefaultSorter>
-        </th>
-        <th style="width: 20%">
-            <mfDefaultSorter by="gender">Name</mfDefaultSorter>
-        </th>
-        <th style="width: 20%">
-            <mfDefaultSorter by="company">Visa Type</mfDefaultSorter>
-        </th>
-        <th style="width: 20%">
-            <mfDefaultSorter by="company">Visa Expiry</mfDefaultSorter>
-        </th>
-        <th style="width: 20%">
-            <mfDefaultSorter by="company">Date of Birth</mfDefaultSorter>
-        </th>
-      
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of mf.data">
-        <td class="text-left">{{item.e_id}}</td>
-        <td class="text-left">{{item.f_name}} {{item.l_name}} </td>
-        <td class="text-left">{{item.v_type}}</td>
-        <td class="text-left">{{item.v_exp}}</td>
-        <td class="text-left">{{item.d_o_b}}</td>
-       
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-        <td colspan="4">
-            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-        </td>
-    </tr>
-    </tfoot>
-  </table>
+    <div class="table-responsive">
+    <table class="table table-striped ">
+      <thead>
+        <tr>
+          <th scope="col">Employee ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Visa Type</th>
+          <th scope="col">Visa Expiry</th>
+          <th scope="col">Date of Birth</th>
+        </tr>
+      </thead> 
+    <tbody>   
+          <tr *ngFor="let worker of workers">
+              <th scope="row">{{worker.e_id}}</th>              
+              <td>{{worker.f_name}}  {{worker.l_name}}</td>
+              <td>{{worker.v_type}}</td>
+              <td>{{worker.v_exp}}</td>
+              <td>{{worker.d_o_b}}</td>              
+           </tr> 
+      </tbody>
+    </table>
+    </div>
   </div>
