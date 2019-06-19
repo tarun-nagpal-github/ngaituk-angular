@@ -15,16 +15,19 @@ import { getTodayDate } from "../../utils/HelperFunctions";
 export class AddWorkerComponent implements OnInit {
   contractors = ["Hradie Hort", "Pasla Ltd", "Pukemapu Services"];
   visaType = ["Work Visa", "Student Visa", "PR"];
+  showLoader = false;
   //prettier-ignore
   model = new Worker('', '', this.contractors[0], '', this.visaType[0], getTodayDate(), getTodayDate());
   constructor(private apiService: ApiService, private router: Router) {}
   ngOnInit() {}
 
   onSubmit() {
+    this.showLoader = true;
     console.warn("Form Submittted");
     this.apiService.addWorker(this.model).subscribe(
       res => {
-        alert("Record Added Successfully");
+        this.showLoader = false;
+        // alert("Record Added Successfully");
         this.router.navigate(["/workers"]);
         console.log("Response");
         console.log(res);

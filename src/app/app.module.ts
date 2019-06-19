@@ -18,6 +18,7 @@ import { AddWorkerComponent } from "./workers/add-worker/add-worker.component";
 import { FormsModule } from "@angular/forms";
 
 import { ReactiveFormsModule } from "@angular/forms";
+import { LoaderComponent } from './ui/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     ContractorsComponent,
     WorkersComponent,
     ComingSoonComponent,
-    AddWorkerComponent
+    AddWorkerComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
