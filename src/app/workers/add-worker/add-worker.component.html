@@ -6,7 +6,7 @@
         </div>
         <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/workers']"> Worker List</a></div>
      </div>
-    
+     
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
       <div class="form-group">
         <label for="firstName">firstName</label>
@@ -21,7 +21,9 @@
         <label for="lastName">lastName</label>
         <input type="text" class="form-control" [(ngModel)]="model.lastName" name="lastName" id="lastName">
       </div>
-
+      
+          <app-loader *ngIf="showLoader"></app-loader>  
+      
       <div class="form-group">
           <label for="contractor">contractor</label>
           <select class="form-control" id="contractor" required [(ngModel)]="model.contractor" name="contractor">

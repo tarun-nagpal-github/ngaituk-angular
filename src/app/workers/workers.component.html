@@ -1,12 +1,13 @@
+<div  *ngIf="showLoader" class="loader-container"> 
+    <app-loader></app-loader>  
+  </div>
 
-  
- <div class="container">
-   
+ <div class="container" *ngIf="!showLoader">
     <div class="row border-bottom" style="padding: 1%">
         <div class="col-10">  <h4  >Workers List </h4>  </div>
         <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-worker']">Add Worker</a></div>  
     </div>
-    <div class="table-responsive">
+    <div class="table-responsive" >        
     <table class="table table-striped ">
       <thead>
         <tr>
@@ -17,7 +18,8 @@
           <th scope="col">Date of Birth</th>
         </tr>
       </thead> 
-    <tbody>   
+    <tbody>         
+        
           <tr *ngFor="let worker of workers">
               <th scope="row">{{worker.e_id}}</th>              
               <td>{{worker.f_name}}  {{worker.l_name}}</td>
