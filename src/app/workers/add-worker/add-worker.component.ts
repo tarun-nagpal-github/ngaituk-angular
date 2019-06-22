@@ -17,7 +17,7 @@ export class AddWorkerComponent implements OnInit {
   visaType = ["Work Visa", "Student Visa", "PR"];
   showLoader = false;
   //prettier-ignore
-  model = new Worker('', '', this.contractors[0], '', this.visaType[0], getTodayDate(), getTodayDate());
+  model = new Worker('', '', this.contractors[0], '', this.visaType[0], '', getTodayDate());
   constructor(private apiService: ApiService, private router: Router) {}
   ngOnInit() {}
 
