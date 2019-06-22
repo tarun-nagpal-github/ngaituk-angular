@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Worker } from "./Worker";
 import { ApiService } from "./../../services/api.service";
 import { getTodayDate } from "../../utils/HelperFunctions";
+import { ActivatedRoute } from "@angular/router";
 
 // import { FormsModule } from '@angular/forms';
 
@@ -18,8 +19,22 @@ export class AddWorkerComponent implements OnInit {
   showLoader = false;
   //prettier-ignore
   model = new Worker('', '', this.contractors[0], '', this.visaType[0], '', getTodayDate());
-  constructor(private apiService: ApiService, private router: Router) {}
-  ngOnInit() {}
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if (params.id) {
+        this.apiService.getWorkers(params.id).subscribe(res => {
+          console.log(res);
+          console.log("RESPONSE FROM SERVER");
+          // this.workers = res;
+        });
+      }
+    });
+  }
 
   isPRVisa() {
     if (this.model.visaType != "PR") {
