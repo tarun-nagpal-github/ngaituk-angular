@@ -21,6 +21,12 @@ export class AddWorkerComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {}
   ngOnInit() {}
 
+  isPRVisa() {
+    if (this.model.visaType != "PR") {
+      return true;
+    }
+    return false;
+  }
   onSubmit() {
     this.showLoader = true;
     console.warn("Form Submittted");

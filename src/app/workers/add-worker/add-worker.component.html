@@ -50,7 +50,7 @@
           </select>
         </div>
 
-        <div class="form-group col-md-6">
+        <div *ngIf="isPRVisa()" class="form-group col-md-6">
             <label for="visaExpiry">Visa Expiry</label>
             <input type="text" class="form-control" [(ngModel)]="model.visaExpiry" required placeholder="Required (YYYY-MM-DD)" #visaExpiry="ngModel" name="visaExpiry" id="visaExpiry" required>
             <div [hidden]="visaExpiry.valid || visaExpiry.pristine" class="alert alert-danger">
