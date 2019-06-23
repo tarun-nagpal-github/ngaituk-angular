@@ -30,9 +30,12 @@ export class ApiService {
     // let httpParams = new HttpParams();
     // httpParams.set("id", id);
     // let options = { params: httpParams };
-    return this.httpClient.delete(`${this.apiURL}/workers/deleteWorker.php`, {
-      body: { id: id }
-    });
+
+    // http://localhost/angular-project/workers/deleteWorker.php?id=109
+    return this.httpClient.delete(
+      `${this.apiURL}/workers/deleteWorker.php?id=${id}`,
+      {}
+    );
   }
 
   addWorker(body): Observable<any> {

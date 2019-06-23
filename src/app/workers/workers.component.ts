@@ -30,6 +30,7 @@ export class WorkersComponent implements OnInit {
     });
   };
 
+  editRecord = (id = null) => {};
   deleteRecord = (id = null) => {
     Swal.fire({
       title: "Are you sure?",
