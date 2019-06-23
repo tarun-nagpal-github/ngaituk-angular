@@ -7,14 +7,14 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiService {
-  apiURL: string = "http://localhost/angular-project/";
+  // apiURL: string = "http://localhost/angular-project/";
+  apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     }),
     responseType: "text" as "json"
   };
-  // apiURL: string = "http://api.ngaituk.online/";
   constructor(private httpClient: HttpClient) {}
 
   private extractData(res: Response) {
