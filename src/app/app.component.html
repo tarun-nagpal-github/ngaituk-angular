@@ -10,7 +10,7 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown active">
+          <!-- <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   TimeSheet 
                   <span class="sr-only">(current)</span></a>
@@ -18,9 +18,20 @@
                       <a class="dropdown-item" [routerLink]="['coming-soon']"  >Add</a>
                       <a class="dropdown-item" [routerLink]="['coming-soon']"> List</a>
                     </div>
+          </li> -->
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse">
+              <a class="nav-link" [routerLink]="['contractors']"   >Contractors</a>
+            </li>
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse" >
+              <a class="nav-link" [routerLink]="['workers']"   >Workers</a>
           </li>
-          
-          <li class="nav-item dropdown">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse">
+              <a class="nav-link" [routerLink]="['job-list']"   >Jobs</a>
+          </li>
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse">
+              <a class="nav-link" [routerLink]="['coming-soon']"  >Summary</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Contractors
             </a>
@@ -28,8 +39,8 @@
               <a class="dropdown-item" [routerLink]="['add-contractor']">Add</a>
               <a class="dropdown-item" [routerLink]="['contractors']"> List</a>
             </div>
-          </li>
-          <li class="nav-item dropdown">
+          </li> -->
+          <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Workers
               </a>
@@ -37,8 +48,8 @@
                   <a class="dropdown-item" [routerLink]="['add-worker']">Add</a>
                   <a class="dropdown-item" [routerLink]="['workers']"> List</a>
                 </div>
-            </li>
-            <li class="nav-item dropdown">
+            </li> -->
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Jobs
               </a>
@@ -46,8 +57,8 @@
                   <a class="dropdown-item" [routerLink]="['job-list']">Add</a>
                   <a class="dropdown-item" [routerLink]="['job-list']"> List</a>
                 </div>
-            </li>
-            <li class="nav-item dropdown">
+            </li> -->
+            <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Summary
               </a>
@@ -55,7 +66,7 @@
                   <a class="dropdown-item" [routerLink]="['coming-soon']">Add</a>
                   <a class="dropdown-item" [routerLink]="['coming-soon']"> List</a>
                 </div>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 User/Site
