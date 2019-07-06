@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "./../services/api.service";
 import { AddWorkerComponent } from "./add-worker/add-worker.component";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import Swal from "sweetalert2";
 declare var swal: any;
@@ -16,7 +16,7 @@ export class WorkersComponent implements OnInit {
   workers: any[];
   workersOld: any[];
   showLoader = true;
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.getRecords();
@@ -30,33 +30,25 @@ export class WorkersComponent implements OnInit {
     });
   };
 
-  editRecord = (id = null) => {};
+  editRecord = (id = null) => {
+    this.router.navigate(["/add-worker"]);
+  };
+
   deleteRecord = (id = null) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You will not be able to recover the record!",
-      type: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, keep it"
-    }).then(result => {
-      if (result.value) {
-        this.apiService.deleteWorker(id).subscribe(
-          res => {
-            console.log(res);
-            this.showLoader = false;
-            this.workers = res;
-            Swal.fire("Deleted!", "Your record has been deleted.", "success");
-            this.getRecords();
-          },
-          error => {
-            console.log(error);
-            Swal.fire("Oops!", "There is an Server Error!", "error");
-          }
-        );
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire("Cancelled", "Your record is safe :)", "error");
-      }
-    });
+    if (confirm("Are you sure to you want to delete ?")) {
+      this.apiService.deleteWorker(id).subscribe(
+        res => {
+          console.log(res);
+          this.showLoader = false;
+          this.workers = res;
+          alert("Your record has been deleted.");
+          this.getRecords();
+        },
+        error => {
+          console.log(error);
+          alert("There is an Server Error!");
+        }
+      );
+    }
   };
 }
