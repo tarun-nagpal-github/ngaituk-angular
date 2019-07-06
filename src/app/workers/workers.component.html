@@ -7,8 +7,17 @@
         <div class="col-10">  <h4  >Workers List </h4>  </div>
         <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-worker']">Add Worker</a></div>  
     </div>
-    <div class="table-responsive" >        
-    <table class="table table-striped ">
+    <div class="table-responsive" >      
+      
+       
+        <div *ngIf="workers.length < 0" class="alert alert-primary fade in alert-dismissible show">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true" style="font-size:20px">×</span>
+             </button>    
+             <strong>No Records Found!</strong> Please <a [routerLink]="['/add-worker']">Add Worker</a> to see the list here. 
+        </div>
+      
+    <table *ngIf="workers.length > 0" class="table table-striped ">
       <thead>
         <tr>
           <th scope="col">Employee ID</th>
@@ -16,16 +25,22 @@
           <th scope="col">Visa Type</th>
           <th scope="col">Visa Expiry</th>
           <th scope="col">Date of Birth</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead> 
-    <tbody>         
-        
+    <tbody>   
           <tr *ngFor="let worker of workers">
-              <th scope="row">{{worker.e_id}}</th>              
-              <td>{{worker.f_name}}  {{worker.l_name}}</td>
-              <td>{{worker.v_type}}</td>
-              <td>{{worker.v_exp}}</td>
-              <td>{{worker.d_o_b}}</td>              
+              <th scope="row">EMP - 000{{worker.id  | json}}</th>              
+              <td>{{worker.f_name}}  {{worker.l_name  | json}}</td>
+              <td>{{worker.v_type  | json}}</td>
+              <td>{{worker.v_exp  | json }}</td>
+              <td>{{worker.d_o_b  | json}}</td>              
+              <td class="actionButtons">                   
+                  <button type="button" class="btn btn-warning editButton" (click)="editRecord(worker.id)">Edit</button>
+              </td>              
+              <td class="actionButtons"> 
+                  <button type="button" class="btn btn-danger" (click)="deleteRecord(worker.id)">Delete</button>
+              </td>              
            </tr> 
       </tbody>
     </table>

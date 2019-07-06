@@ -4,54 +4,67 @@
         <div class="col-10">
            <h4>Add new Worker </h4>
         </div>
-        <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/workers']"> Worker List</a></div>
+        <div  class="float-right margin-7"> <a class="btn btn-primary "  [routerLink]="['/workers']"> Worker List</a></div>
      </div>
      
-    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-      <div class="form-group">
-        <label for="firstName">firstName</label>
-        <input type="text" class="form-control" id="firstName" [(ngModel)]="model.firstName"  #name="ngModel" name="firstName" required >
-        
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm" class="workerForm">
+      <div class="row">
+      <div class="form-group col-md-6">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="model.firstName"  #name="ngModel" name="firstName" required placeholder="Required">        
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
             Name is required
         </div>
       </div>
-
-      <div class="form-group">
-        <label for="lastName">lastName</label>
+      
+      <div class="form-group col-md-6">
+        <label for="lastName">Last Name</label>
         <input type="text" class="form-control" [(ngModel)]="model.lastName" name="lastName" id="lastName">
       </div>
-      
+    </div>
           <app-loader *ngIf="showLoader"></app-loader>  
-      
-      <div class="form-group">
-          <label for="contractor">contractor</label>
+          <div class="row">
+      <div class="form-group col-md-6">
+          <label for="contractor">Contractor</label>
           <select class="form-control" id="contractor" required [(ngModel)]="model.contractor" name="contractor">
             <option *ngFor="let pow of contractors" [value]="pow">{{pow}}</option>
           </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-6">
+            <label for="visaExpiry">Date Of Birth</label>
+            <input type="text" class="form-control" [(ngModel)]="model.dateOfBirth" name="dateOfBirth" id="dateOfBirth">
+        </div> 
+
+        <!-- <div class="form-group col-md-6">
             <label for="employeeId">Employee Id</label>
             <input type="text" class="form-control" [(ngModel)]="model.employeeId" name="employeeId" id="employeeId">
-        </div>
+        </div> -->
+          </div>
 
-       <div class="form-group">
+          <div class="row">
+       <div class="form-group col-md-6">
           <label for="contractor">Visa Type</label>
           <select class="form-control" id="visaType" required [(ngModel)]="model.visaType" name="visaType">
             <option *ngFor="let pow of visaType" [value]="pow">{{pow}}</option>
           </select>
         </div>
 
-        <div class="form-group">
+        <div *ngIf="isPRVisa()" class="form-group col-md-6">
             <label for="visaExpiry">Visa Expiry</label>
-            <input type="text" class="form-control" [(ngModel)]="model.visaExpiry" name="visaExpiry" id="visaExpiry">
+            <input type="text" class="form-control" [(ngModel)]="model.visaExpiry" required placeholder="Required (YYYY-MM-DD)" #visaExpiry="ngModel" name="visaExpiry" id="visaExpiry" required>
+            <div [hidden]="visaExpiry.valid || visaExpiry.pristine" class="alert alert-danger">
+                Visa Expiry is required
+            </div>
         </div>
+       
+      </div>
+     
 
-        <div class="form-group">
-            <label for="visaExpiry">Date Of Birth</label>
-            <input type="text" class="form-control" [(ngModel)]="model.dateOfBirth" name="dateOfBirth" id="dateOfBirth">
-        </div> 
-      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>     
+  <div class="row  float-right margin-0">
+      <div class="">
+          <button type="submit" class="btn btn-lg btn-success" [disabled]="!heroForm.form.valid">Submit</button>  
+      </div> 
+  </div> 
     </form>
 </div>
