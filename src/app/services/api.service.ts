@@ -7,8 +7,8 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiService {
-  apiURL: string = "http://localhost/angular-project/";
-  // apiURL: string = "http://api.ngaituk.online/";
+  // apiURL: string = "http://localhost/angular-project/";
+  apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
