@@ -1,0 +1,44 @@
+<div  *ngIf="showLoader" class="loader-container"> 
+  <app-loader></app-loader>  
+</div>
+
+<div class="container" *ngIf="!showLoader">
+  <div class="row border-bottom" style="padding: 1%">
+      <div class="col-10">  <h4  >Jobs </h4>  </div>
+      <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-job']">Add New Job</a></div>  
+  </div>
+  <div class="table-responsive" >      
+    
+     
+      <div *ngIf="jobs.length < 0" class="alert alert-primary fade in alert-dismissible show">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true" style="font-size:20px">×</span>
+           </button>    
+           <strong>No Records Found!</strong> Please <a [routerLink]="['/add-job']">Add Job</a> to see the list here. 
+      </div>
+    
+  <table *ngIf="jobs.length > 0" class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Title</th>
+        <th scope="col">Code</th>
+      </tr>
+    </thead> 
+  <tbody>   
+        <tr *ngFor="let job of jobs">
+            
+            
+            <td>{{job.s_no  }}</td>
+            <td>{{job.j_title   }}</td>
+            <td>{{job.j_code  }}</td>              
+            <td class="actionButtons">  
+                <i class="fa fa-pencil-square-o fa-2x" style="cursor: pointer" aria-hidden="true" (click)="editRecord(job.s_no)"> </i>    
+                &nbsp;
+                 <i class="fa fa-trash-o fa-2x" aria-hidden="true" style="cursor: pointer" (click)="deleteRecord(job.s_no)"> </i>
+            </td>
+         </tr> 
+    </tbody>
+  </table>
+  </div>
+</div>

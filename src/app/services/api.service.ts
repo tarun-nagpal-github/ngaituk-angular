@@ -7,8 +7,8 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiService {
-  // apiURL: string = "http://localhost/angular-project/";
-  apiURL: string = "http://api.ngaituk.online/";
+  apiURL: string = "http://localhost/angular-project/";
+  // apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
@@ -26,14 +26,20 @@ export class ApiService {
     return this.httpClient.get(`${this.apiURL}/workers/getWorkers.php`);
   }
 
-  deleteWorker(id = null): Observable<any> {
-    // let httpParams = new HttpParams();
-    // httpParams.set("id", id);
-    // let options = { params: httpParams };
+  getJobs(id = null): Observable<any> {
+    return this.httpClient.get(`${this.apiURL}/jobs/getJobs.php`);
+  }
 
-    // http://localhost/angular-project/workers/deleteWorker.php?id=109
+  deleteWorker(id = null): Observable<any> {
     return this.httpClient.delete(
       `${this.apiURL}/workers/deleteWorker.php?id=${id}`,
+      {}
+    );
+  }
+
+  deleteJob(s_no = null): Observable<any> {
+    return this.httpClient.delete(
+      `${this.apiURL}/jobs/deleteJob.php?s_no=${s_no}`,
       {}
     );
   }
@@ -41,6 +47,14 @@ export class ApiService {
   addWorker(body): Observable<any> {
     return this.httpClient.post(
       `${this.apiURL}/workers/createWorker.php`,
+      body,
+      this.httpOptions
+    );
+  }
+
+  addJob(body): Observable<any> {
+    return this.httpClient.post(
+      `${this.apiURL}/jobs/createjob.php`,
       body,
       this.httpOptions
     );

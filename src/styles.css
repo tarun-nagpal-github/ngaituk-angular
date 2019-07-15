@@ -26,7 +26,7 @@
 }
 .collapse.show {
   display: block;
-  background-color: #339933;
+  /* background-color: #339933; */
 }
 .logout {
   background-color: transparent;
