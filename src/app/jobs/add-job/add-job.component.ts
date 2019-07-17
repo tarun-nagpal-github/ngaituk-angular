@@ -13,6 +13,7 @@ import { Router } from "@angular/router";
 export class AddJobComponent implements OnInit {
   //prettier-ignore
   model = new Job('Harvest', 'HV0023');
+  showLoader = false;
   constructor(
     private apiService: ApiService,
     private router: Router,
@@ -23,7 +24,6 @@ export class AddJobComponent implements OnInit {
 
   onSubmit() {
     this.showLoader = true;
-    console.warn("Form Submittted");
     this.apiService.addJob(this.model).subscribe(
       res => {
         this.showLoader = false;

@@ -7,8 +7,8 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiService {
-  // apiURL: string = "http://localhost/angular-project/";
-  apiURL: string = "http://api.ngaituk.online/";
+  apiURL: string = "http://localhost/angular-project/";
+  // apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
@@ -24,6 +24,10 @@ export class ApiService {
 
   getWorkers(id = null): Observable<any> {
     return this.httpClient.get(`${this.apiURL}/workers/getWorkers.php`);
+  }
+
+  geContractors(id = null): Observable<any> {
+    return this.httpClient.get(`${this.apiURL}/contractors/getContractors.php`);
   }
 
   getJobs(id = null): Observable<any> {

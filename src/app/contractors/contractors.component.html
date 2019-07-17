@@ -1,7 +1,44 @@
-<div class="container">
-    <div class="pb-2 mt-4 mb-2 border-bottom">
-        <h4>Contractors</h4>    
-  </div>
-  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+<div  *ngIf="showLoader" class="loader-container"> 
+  <app-loader></app-loader>  
 </div>
 
+<div class="container" *ngIf="!showLoader">
+  <div class="row border-bottom" style="padding: 1%">
+      <div class="col-10">  <h4  >Contractors </h4>  </div>
+      <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-job']">Add New Contractor</a></div>  
+  </div>
+  <div class="table-responsive" >      
+    
+     
+      <div *ngIf="contractors.length < 0" class="alert alert-primary fade in alert-dismissible show">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true" style="font-size:20px">×</span>
+           </button>    
+           <strong>No Records Found!</strong> Please <a [routerLink]="['/add-job']">Add New</a> to see the list here. 
+      </div>
+    
+  <table *ngIf="contractors.length > 0" class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead> 
+  <tbody>   
+        <tr *ngFor="let contractor of contractors">
+            
+            
+            <td>{{contractor.s_no  }}</td>
+            <td>{{contractor.c_name   }}</td>
+            <td>{{contractor.c_add  }}</td>              
+            <td class="actionButtons">  
+                <i class="fa fa-pencil-square-o fa-2x" style="cursor: pointer" aria-hidden="true" (click)="editRecord(contractor.s_no)"> </i>    
+                &nbsp;
+                 <i class="fa fa-trash-o fa-2x" aria-hidden="true" style="cursor: pointer" (click)="deleteRecord(contractor.s_no)"> </i>
+            </td>
+         </tr> 
+    </tbody>
+  </table>
+  </div>
+</div>

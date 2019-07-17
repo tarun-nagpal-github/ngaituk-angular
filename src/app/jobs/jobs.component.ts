@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "./../services/api.service";
-import { AddWorkerComponent } from "./add-worker/add-worker.component";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
@@ -9,6 +8,9 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./jobs.component.css"]
 })
 export class JobsComponent implements OnInit {
+  showLoader = false;
+
+  jobs: any[];
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
