@@ -26,4 +26,21 @@ export class ContractorsComponent implements OnInit {
       this.contractors = res;
     });
   };
+  deleteRecord = (id = null) => {
+    if (confirm("Are you sure to you want to delete ?")) {
+      this.apiService.deleteContractor(id).subscribe(
+        res => {
+          console.log(res);
+          this.showLoader = false;
+          this.contractors = res;
+          alert("Your record has been deleted.");
+          this.getRecords();
+        },
+        error => {
+          console.log(error);
+          alert("There is an Server Error!");
+        }
+      );
+    }
+  };
 }

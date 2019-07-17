@@ -22,6 +22,7 @@ import { LoaderComponent } from "./ui/loader/loader.component";
 import { JobsComponent } from './jobs/jobs.component';
 import { AddJobComponent } from './jobs/add-job/add-job.component';
 import { AddContractorComponent } from './contractors/add-contractor/add-contractor.component';
+import { TimesheetComponent } from './timesheet/timesheet.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddContractorComponent } from './contractors/add-contractor/add-contrac
     LoaderComponent,
     JobsComponent,
     AddJobComponent,
-    AddContractorComponent
+    AddContractorComponent,
+    TimesheetComponent
   ],
   imports: [
     BrowserModule,

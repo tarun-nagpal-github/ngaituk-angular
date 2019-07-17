@@ -5,7 +5,7 @@
 <div class="container" *ngIf="!showLoader">
   <div class="row border-bottom" style="padding: 1%">
       <div class="col-10">  <h4  >Contractors </h4>  </div>
-      <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-job']">Add New Contractor</a></div>  
+      <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-contractor']">Add New Contractor</a></div>  
   </div>
   <div class="table-responsive" >      
     
@@ -14,7 +14,7 @@
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true" style="font-size:20px">×</span>
            </button>    
-           <strong>No Records Found!</strong> Please <a [routerLink]="['/add-job']">Add New</a> to see the list here. 
+           <strong>No Records Found!</strong> Please <a [routerLink]="['/add-contractor']">Add New</a> to see the list here. 
       </div>
     
   <table *ngIf="contractors.length > 0" class="table table-striped ">
