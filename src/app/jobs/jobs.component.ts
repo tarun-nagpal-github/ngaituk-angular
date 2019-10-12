@@ -3,16 +3,14 @@ import { ApiService } from "./../services/api.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: "app-contractors",
-  templateUrl: "./contractors.component.html",
-  styleUrls: ["./contractors.component.css"]
+  selector: "app-jobs",
+  templateUrl: "./jobs.component.html",
+  styleUrls: ["./jobs.component.css"]
 })
-export class ContractorsComponent implements OnInit {
-  settings: any;
-  data: any;
-  contractors: any[];
+export class JobsComponent implements OnInit {
   showLoader = false;
 
+  jobs: any[];
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
@@ -20,19 +18,24 @@ export class ContractorsComponent implements OnInit {
   }
 
   getRecords = () => {
-    this.apiService.geContractors().subscribe(res => {
+    this.apiService.getJobs().subscribe(res => {
       console.log(res);
       this.showLoader = false;
-      this.contractors = res;
+      this.jobs = res;
     });
   };
+
+  editRecord = (id = null) => {
+    this.router.navigate(["/add-job"]);
+  };
+
   deleteRecord = (id = null) => {
     if (confirm("Are you sure to you want to delete ?")) {
-      this.apiService.deleteContractor(id).subscribe(
+      this.apiService.deleteJob(id).subscribe(
         res => {
           console.log(res);
           this.showLoader = false;
-          this.contractors = res;
+          this.jobs = res;
           alert("Your record has been deleted.");
           this.getRecords();
         },

@@ -1,0 +1,56 @@
+<div  *ngIf="showLoader" class="loader-container"> 
+  <app-loader></app-loader>  
+</div>
+
+<div class="container" *ngIf="!showLoader">
+  <div class="row border-bottom" style="padding: 1%">
+      <div class="col-10">  <h4  >TimeSheet </h4>  </div>
+      <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/add-job']">Create TimeSheet</a></div>  
+  </div>
+  <div class="table-responsive" >      
+    
+     
+      <div *ngIf="timesheet.length < 0" class="alert alert-primary fade in alert-dismissible show">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true" style="font-size:20px">×</span>
+           </button>    
+           <strong>No Records Found!</strong> Please <a [routerLink]="['/add-job']">Add Job</a> to see the list here. 
+      </div>
+    
+  <table *ngIf="timesheet.length > 0" class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">EmpID</th>
+        <th scope="col">Date</th>
+        <th scope="col">Name</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">Finish Time</th>
+        <th scope="col">Lunch</th>
+        <th scope="col">Job Code</th>
+        <th scope="col">Total Hours</th>
+        <th scope="col">Notes</th>
+      </tr>
+    </thead> 
+  <tbody>   
+        <tr *ngFor="let record of timesheet">
+            
+            
+            <td>{{record.e_id  }}</td>
+            <td>{{record.t_date   }}</td>
+            <td>{{record.f_name  }} {{record.l_name}}</td>              
+            <td>{{record.s_time   }}</td>
+            <td>{{record.f_time   }}</td>
+            <td>{{record.n_lunch   }}</td>
+            <td>{{record.j_code   }}</td>
+            <td>{{record.t_hrs   }}</td>
+            <td>{{record.notes   }}</td>
+            <td class="actionButtons">  
+                <i class="fa fa-pencil-square-o fa-2x" style="cursor: pointer" aria-hidden="true" (click)="editRecord(job.s_no)"> </i>    
+                &nbsp;
+                 <i class="fa fa-trash-o fa-2x" aria-hidden="true" style="cursor: pointer" (click)="deleteRecord(job.s_no)"> </i>
+            </td>
+         </tr> 
+    </tbody>
+  </table>
+  </div>
+</div>

@@ -6,6 +6,10 @@ import { ContractorsComponent } from "../contractors/contractors.component";
 import { WorkersComponent } from "../workers/workers.component";
 import { ComingSoonComponent } from "../coming-soon/coming-soon.component";
 import { AddWorkerComponent } from "../workers/add-worker/add-worker.component";
+import { JobsComponent } from "../jobs/jobs.component";
+import { AddJobComponent } from "../jobs/add-job/add-job.component";
+import { AddContractorComponent } from "../contractors/add-contractor/add-contractor.component";
+import { TimesheetComponent } from "../timesheet/timesheet.component";
 
 const routes: Routes = [
   {
@@ -21,8 +25,20 @@ const routes: Routes = [
     component: ContractorsComponent
   },
   {
-    path: "job-list",
-    component: JobListingComponent
+    path: "add-job",
+    component: AddJobComponent
+  },
+  {
+    path: "add-contractor",
+    component: AddContractorComponent
+  },
+  {
+    path: "jobs",
+    component: JobsComponent
+  },
+  {
+    path: "timesheet",
+    component: TimesheetComponent
   },
   {
     path: "dashboard",

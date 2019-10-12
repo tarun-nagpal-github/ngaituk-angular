@@ -1,0 +1,39 @@
+<div class="container" style="padding-bottom: 1%">
+    
+  <div class="row border-bottom" style="padding: 1%">
+      <div class="col-10">
+         <h4>Add new Job </h4>
+      </div>
+      <div  class="float-right"> <a class="btn btn-primary "  [routerLink]="['/jobs']"> Job List</a></div>
+   </div>
+   
+
+
+
+  <form (ngSubmit)="onSubmit()" #jobForm="ngForm" class="jobForm">
+    <div class="row">
+    <div class="form-group col-md-6">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="model.title"  #name="ngModel" name="title" required placeholder="Required">        
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Title is required
+      </div>
+    </div>
+    
+    <div class="form-group col-md-6">
+      <label for="lastName">Job Code</label>
+      <input type="text" class="form-control" [(ngModel)]="model.jobCode" name="jobCode" id="jobCode">
+    </div>
+  </div>
+        <app-loader *ngIf="showLoader"></app-loader>  
+        
+   
+   
+
+<div class="row  float-right margin-0">
+    <div class="">
+        <button type="submit" class="btn btn-lg btn-success" [disabled]="!heroForm.form.valid">Submit</button>  
+    </div> 
+</div> 
+  </form>
+</div>
