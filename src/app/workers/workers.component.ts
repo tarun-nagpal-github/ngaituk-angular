@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "./../services/api.service";
+import { ApiContractorService } from "./../services/api.contractors.service";
 import { AddWorkerComponent } from "./add-worker/add-worker.component";
 import { ActivatedRoute, Router } from "@angular/router";
 
@@ -16,17 +17,34 @@ export class WorkersComponent implements OnInit {
   workers: any[];
   workersOld: any[];
   showLoader = true;
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(
+    private apiService: ApiService, private apiContractor: ApiContractorService, private router: Router
+  ) { }
 
   ngOnInit() {
+    console.log("On INIT Called");
     this.getRecords();
+    this.getContractors();
   }
 
+
   getRecords = () => {
+
     this.apiService.getWorkers().subscribe(res => {
       console.log(res);
       this.showLoader = false;
       this.workers = res;
+    });
+  };
+
+  getContractors = () => {
+    console.log("Get COntractors Called");
+    this.apiContractor.getContarctors().subscribe(res => {
+      console.log("Get COntractors");
+      console.log(res);
+      console.log("Get COntractors");
+      // this.showLoader = false;
+      // this.workers = res;
     });
   };
 

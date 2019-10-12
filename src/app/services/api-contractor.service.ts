@@ -5,7 +5,7 @@ import { Observable, Subscribable } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
-export class ApiService {
+export class ApiContractorService {
   apiURL: string = "http://localhost/angular-project/";
   // apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
@@ -21,26 +21,20 @@ export class ApiService {
     return body || {};
   }
 
-  getWorkers(id = null): Observable<any> {
-    return this.httpClient.get(`${this.apiURL}/workers/getWorkers.php`);
+  getContarctors(id = null): Observable<any> {
+    return this.httpClient.get(`${this.apiURL}/contractors/getContractors.php`);
   }
 
-  deleteWorker(id = null): Observable<any> {
+  deleteContractor(id = null): Observable<any> {
     return this.httpClient.delete(
-      `${this.apiURL}/workers/deleteWorker.php?id=${id}`,
+      `${this.apiURL}/contractors/deleteContractor.php?id=${id}`,
       {}
     );
   }
 
-  addWorker(body): Observable<any> {
-
-    console.log("WORKER DATA");
-    console.log(body);
-    console.log("WORKER DATA");
-    debugger;
-
+  createContractor(body): Observable<any> {
     return this.httpClient.post(
-      `${this.apiURL}/workers/createWorker.php`,
+      `${this.apiURL}/contractors/createContractor.php`,
       body,
       this.httpOptions
     );

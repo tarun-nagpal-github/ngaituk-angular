@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 
 import { Worker } from "./Worker";
 import { ApiService } from "./../../services/api.service";
+import { ApiContractorService } from "./../../services/api-contractor.service";
 import { getTodayDate } from "../../utils/HelperFunctions";
 import { ActivatedRoute } from "@angular/router";
 
@@ -14,17 +15,25 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./add-worker.component.css"]
 })
 export class AddWorkerComponent implements OnInit {
-  contractors = ["Hradie Hort", "Pasla Ltd", "Pukemapu Services"];
+  contractors = ["1"];
   visaType = ["Work Visa", "Student Visa", "PR"];
   showLoader = false;
   //prettier-ignore
   model = new Worker('', '', this.contractors[0], '', this.visaType[0], '', getTodayDate());
   constructor(
     private apiService: ApiService,
+    private apiContractorService: ApiContractorService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
   ngOnInit() {
+    this.getEditRecord();
+    this.apiContractorService.getContarctors().subscribe(res => {
+      this.contractors = res.data;
+    })
+  }
+
+  getEditRecord = () => {
     this.route.queryParams.subscribe(params => {
       if (params.id) {
         this.apiService.getWorkers(params.id).subscribe(res => {
@@ -45,6 +54,11 @@ export class AddWorkerComponent implements OnInit {
   onSubmit() {
     this.showLoader = true;
     console.warn("Form Submittted");
+    console.log("MODAL BEFORE SUBMIT");
+    console.log(this.model);
+    console.log("MODAL BEFORE SUBMIT");
+
+    debugger;
     this.apiService.addWorker(this.model).subscribe(
       res => {
         this.showLoader = false;
@@ -58,5 +72,14 @@ export class AddWorkerComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  compareFn(c1: any, c2: any): boolean {
+    console.log("c1");
+    console.log(c1);
+    console.log("c2");
+    console.log(c2);
+    return true;
+    // return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 }

@@ -29,8 +29,13 @@
           <div class="row">
       <div class="form-group col-md-6">
           <label for="contractor">Contractor</label>
-          <select class="form-control" id="contractor" required [(ngModel)]="model.contractor" name="contractor">
-            <option *ngFor="let pow of contractors" [value]="pow">{{pow}}</option>
+          <select class="form-control" id="contractor"   required [(ngModel)]="model.contractor" name="contractor">
+            <option             
+            [selected]="contractor.c_name == 'Hradie Hort'"
+            *ngFor="let contractor of contractors" [value]="contractor.s_no"> 
+            {{contractor.c_name}}
+            <!-- {{contractor.c_name == 'Hradie Hort'}}  -->
+          </option>
           </select>
         </div>
 
