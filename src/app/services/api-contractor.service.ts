@@ -6,7 +6,7 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiContractorService {
-  apiURL: string = "http://localhost/angular-project/";
+  apiURL: string = "http://localhost/ngaituk-php/";
   // apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({

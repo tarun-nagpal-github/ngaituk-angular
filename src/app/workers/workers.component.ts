@@ -49,7 +49,7 @@ export class WorkersComponent implements OnInit {
   };
 
   editRecord = (id = null) => {
-    this.router.navigate(["/add-worker"]);
+    this.router.navigate(['/add-worker', id]);
   };
 
   deleteRecord = (id = null) => {

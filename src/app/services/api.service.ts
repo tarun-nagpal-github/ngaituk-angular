@@ -6,7 +6,7 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiService {
-  apiURL: string = "http://localhost/angular-project/";
+  apiURL: string = "http://localhost/ngaituk-php/";
   // apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({
@@ -65,7 +65,7 @@ export class ApiService {
     console.log("WORKER DATA");
     debugger;
 
-    return this.httpClient.post(
+    return this.httpClient.put(
       `${this.apiURL}/workers/createWorker.php`,
       body,
       this.httpOptions

@@ -17,6 +17,11 @@ const routes: Routes = [
     component: AddWorkerComponent
   },
   {
+    path: "add-worker/:id",
+    component: AddWorkerComponent
+  },
+
+  {
     path: "workers",
     component: WorkersComponent
   },
@@ -59,4 +64,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: []
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
