@@ -18,9 +18,24 @@ export class AddJobComponent implements OnInit {
     private apiService: ApiService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getEditRecord();
+  }
+
+  getEditRecord = () => {
+
+    let id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.apiService.getJobs(id).subscribe(res => {
+        let result = res[0];
+        this.model.title = result.j_title;
+        this.model.jobCode = result.j_code;
+      });
+    }
+
+  }
 
   onSubmit() {
     this.showLoader = true;

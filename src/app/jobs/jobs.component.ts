@@ -11,7 +11,7 @@ export class JobsComponent implements OnInit {
   showLoader = false;
 
   jobs: any[];
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getRecords();
@@ -25,8 +25,27 @@ export class JobsComponent implements OnInit {
     });
   };
 
+  // getEditRecord = () => {
+
+  //   let id = this.route.snapshot.paramMap.get('id');
+  //   if (id) {
+  //     this.apiService.getWorkers(id).subscribe(res => {
+  //       let result = res[0];
+  //       this.model.contractor = result.contractor_id;
+  //       this.model.dateOfBirth = result.d_o_b;
+  //       this.model.workerId = result.e_id;
+  //       this.model.firstName = result.f_name;
+  //       this.model.lastName = result.l_name;
+  //       this.model.visaExpiry = result.v_exp;
+  //       this.model.visaType = result.v_type;
+  //     });
+  //   }
+
+  // }
+
+
   editRecord = (id = null) => {
-    this.router.navigate(["/add-job"]);
+    this.router.navigate(['/add-job', id]);
   };
 
   deleteRecord = (id = null) => {

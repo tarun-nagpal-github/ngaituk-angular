@@ -22,7 +22,11 @@ export class ApiService {
   }
 
   getWorkers(id = null): Observable<any> {
-    return this.httpClient.get(`${this.apiURL}/workers/getWorkers.php`);
+
+    let apiUrl = `${this.apiURL}/workers/getWorkers.php`;
+    apiUrl = (id) ? apiUrl + `?id=${id}` : apiUrl;
+
+    return this.httpClient.get(apiUrl);
   }
 
   geContractors(id = null): Observable<any> {
@@ -30,7 +34,14 @@ export class ApiService {
   }
 
   getJobs(id = null): Observable<any> {
-    return this.httpClient.get(`${this.apiURL}/jobs/getJobs.php`);
+    let apiUrl = `${this.apiURL}/jobs/getJobs.php`;
+    apiUrl = (id) ? apiUrl + `?id=${id}` : apiUrl;
+
+    console.log("ID");
+    console.log(apiUrl);
+    console.log("ID");
+    debugger;
+    return this.httpClient.get(apiUrl);
   }
 
   getTimesheet(id = null): Observable<any> {

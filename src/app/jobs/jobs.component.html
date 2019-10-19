@@ -29,13 +29,13 @@
         <tr *ngFor="let job of jobs">
             
             
-            <td>{{job.s_no  }}</td>
+            <td>{{job.id  }}</td>
             <td>{{job.j_title   }}</td>
             <td>{{job.j_code  }}</td>              
             <td class="actionButtons">  
-                <i class="fa fa-pencil-square-o fa-2x" style="cursor: pointer" aria-hidden="true" (click)="editRecord(job.s_no)"> </i>    
+                <i class="fa fa-pencil-square-o fa-2x" style="cursor: pointer" aria-hidden="true" (click)="editRecord(job.id)"> </i>    
                 &nbsp;
-                 <i class="fa fa-trash-o fa-2x" aria-hidden="true" style="cursor: pointer" (click)="deleteRecord(job.s_no)"> </i>
+                 <i class="fa fa-trash-o fa-2x" aria-hidden="true" style="cursor: pointer" (click)="deleteRecord(job.id)"> </i>
             </td>
          </tr> 
     </tbody>

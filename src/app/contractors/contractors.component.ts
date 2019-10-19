@@ -12,18 +12,23 @@ export class ContractorsComponent implements OnInit {
   data: any;
   contractors: any[];
   showLoader = false;
+  // isRecords = 0;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getRecords();
+    // this.isRecords = this.contractors.length;
   }
 
   getRecords = () => {
     this.apiService.geContractors().subscribe(res => {
+      console.log("res");
       console.log(res);
+      console.log("res");
+      debugger;
       this.showLoader = false;
-      this.contractors = res;
+      this.contractors = res.data;
     });
   };
   deleteRecord = (id = null) => {

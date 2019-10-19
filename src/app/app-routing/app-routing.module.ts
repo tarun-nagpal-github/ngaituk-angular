@@ -33,6 +33,11 @@ const routes: Routes = [
     path: "add-job",
     component: AddJobComponent
   },
+
+  {
+    path: "add-job/:id",
+    component: AddJobComponent
+  },
   {
     path: "add-contractor",
     component: AddContractorComponent

@@ -10,14 +10,14 @@
   <div class="table-responsive" >      
     
      
-      <div *ngIf="contractors.length < 0" class="alert alert-primary fade in alert-dismissible show">
+      <div *ngIf="contractors && contractors.length < 0" class="alert alert-primary fade in alert-dismissible show">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
              <span aria-hidden="true" style="font-size:20px">×</span>
            </button>    
            <strong>No Records Found!</strong> Please <a [routerLink]="['/add-contractor']">Add New</a> to see the list here. 
       </div>
     
-  <table *ngIf="contractors.length > 0" class="table table-striped ">
+  <table *ngIf="contractors && contractors.length > 0" class="table table-striped ">
     <thead>
       <tr>
         <th scope="col">Sr.No</th>
