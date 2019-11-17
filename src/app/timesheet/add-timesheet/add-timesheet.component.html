@@ -1,0 +1,52 @@
+<div class="container py-1">
+  <!-- <h1>{{model | json}}</h1> -->
+  <div class="pb-2 mt-4 mb-2 border-bottom">
+    <h3> Create Timesheet </h3>
+  </div>
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <form> 
+        <div class="form-group row">
+          <div class="col-sm-6  ">
+            <label for="inputFirstname">Date</label>
+            <div style="width: 100%;">
+              <div style="width: 90%; ">
+                <input type="text" name="date" [(ngModel)]="model.date" ngbDatepicker #d="ngbDatepicker"
+                  class="form-control" style="float: left; margin-right: 2%;" (dateSelect)="onDateSelect($event)" />
+              </div>
+              <div>
+                <i class="fa fa-calendar fa-2x" style="cursor: pointer;" aria-hidden="true" (click)="d.toggle()"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <label for="inputLastname">Contractor</label>
+            <select class="form-control" id="Contractor">
+              <option>1</option>
+              <option>1</option>
+              <option>1</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <label for="crewNumber">Crew Number</label>
+            <input type="text" class="form-control" name="crewNum" [(ngModel)]="model.crewNum"
+              placeholder="Crew Number" />
+          </div>
+          <div class="col-sm-6">
+            <label for="inputAddressLine2">Job</label>
+            <select class="form-control" id="Contractor">
+              <option>1</option>
+              <option>1</option>
+              <option>1</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class=" ml-2 btn btn-primary px-4 float-right">Select Workers</button>
+        <button type="button" class="btn ml-2 btn-primary px-4 float-right">Cancel</button>
+        <button type="button" class="btn ml-2 btn-primary px-4 float-right">Back</button>
+      </form>
+    </div>
+  </div>
+</div>

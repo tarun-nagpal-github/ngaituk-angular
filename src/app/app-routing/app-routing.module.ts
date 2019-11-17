@@ -10,6 +10,7 @@ import { JobsComponent } from "../jobs/jobs.component";
 import { AddJobComponent } from "../jobs/add-job/add-job.component";
 import { AddContractorComponent } from "../contractors/add-contractor/add-contractor.component";
 import { TimesheetComponent } from "../timesheet/timesheet.component";
+import { AddTimesheetComponent } from "../timesheet/add-timesheet/add-timesheet.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: "add-contractor",
     component: AddContractorComponent
+  },
+  {
+    path: "add-timesheet",
+    component: AddTimesheetComponent
   },
   {
     path: "jobs",

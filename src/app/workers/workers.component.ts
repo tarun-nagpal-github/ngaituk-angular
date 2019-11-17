@@ -4,8 +4,6 @@ import { ApiContractorService } from "./../services/api.contractors.service";
 import { AddWorkerComponent } from "./add-worker/add-worker.component";
 import { ActivatedRoute, Router } from "@angular/router";
 
-import Swal from "sweetalert2";
-declare var swal: any;
 @Component({
   selector: "app-workers",
   templateUrl: "./workers.component.html",
