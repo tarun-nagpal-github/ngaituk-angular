@@ -14,7 +14,7 @@ export class ContractorsComponent implements OnInit {
   showLoader = false;
   // isRecords = 0;
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.getRecords();
@@ -31,6 +31,7 @@ export class ContractorsComponent implements OnInit {
       this.contractors = res.data;
     });
   };
+
   deleteRecord = (id = null) => {
     if (confirm("Are you sure to you want to delete ?")) {
       this.apiService.deleteContractor(id).subscribe(

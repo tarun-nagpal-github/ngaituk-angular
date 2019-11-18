@@ -6,15 +6,15 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiService {
-  // apiURL: string = "http://localhost/ngaituk-php/";
-  apiURL: string = "http://api.ngaituk.online/";
+  apiURL: string = "http://localhost/ngaituk-php/";
+  // apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     }),
     responseType: "text" as "json"
   };
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   private extractData(res: Response) {
     let body = res;
@@ -22,9 +22,8 @@ export class ApiService {
   }
 
   getWorkers(id = null): Observable<any> {
-
     let apiUrl = `${this.apiURL}/workers/getWorkers.php`;
-    apiUrl = (id) ? apiUrl + `?id=${id}` : apiUrl;
+    apiUrl = id ? apiUrl + `?id=${id}` : apiUrl;
 
     return this.httpClient.get(apiUrl);
   }
@@ -35,12 +34,12 @@ export class ApiService {
 
   getJobs(id = null): Observable<any> {
     let apiUrl = `${this.apiURL}/jobs/getJobs.php`;
-    apiUrl = (id) ? apiUrl + `?id=${id}` : apiUrl;
+    apiUrl = id ? apiUrl + `?id=${id}` : apiUrl;
 
     console.log("ID");
     console.log(apiUrl);
     console.log("ID");
-    debugger;
+
     return this.httpClient.get(apiUrl);
   }
 
@@ -70,7 +69,6 @@ export class ApiService {
   }
 
   addWorker(body): Observable<any> {
-
     console.log("WORKER DATA");
     console.log(body);
     console.log("WORKER DATA");

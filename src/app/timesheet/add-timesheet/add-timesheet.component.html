@@ -20,11 +20,9 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <label for="inputLastname">Contractor</label>
-            <select class="form-control" id="Contractor">
-              <option>1</option>
-              <option>1</option>
-              <option>1</option>
+            <label for="inputLastname">Contractor</label>            
+            <select class="form-control" id="Contractor" [(ngModel)]="model.job">              
+                <option *ngFor="let test of model.contractors" [ngValue]="test.s_no">{{test.c_name}}</option>
             </select>
           </div>
         </div>
@@ -36,14 +34,12 @@
           </div>
           <div class="col-sm-6">
             <label for="inputAddressLine2">Job</label>
-            <select class="form-control" id="Contractor">
-              <option>1</option>
-              <option>1</option>
-              <option>1</option>
+            <select class="form-control" id="job" name="job" [(ngModel)]="model.job" >                
+                <option *ngFor="let test of model.jobs" [ngValue]="test.id"  >{{test.j_title}}</option>
             </select>
           </div>
         </div>
-        <button type="button" class=" ml-2 btn btn-primary px-4 float-right">Select Workers</button>
+        <button type="button" class=" ml-2 btn btn-primary px-4 float-right" (click)="selectWorkers()">Select Workers</button>
         <button type="button" class="btn ml-2 btn-primary px-4 float-right">Cancel</button>
         <button type="button" class="btn ml-2 btn-primary px-4 float-right">Back</button>
       </form>

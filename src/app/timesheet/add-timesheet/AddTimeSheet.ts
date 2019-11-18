@@ -3,6 +3,8 @@ export class AddTimeSheet {
     public date: any,
     public crewNum?: any,
     public contractor?: any,
-    public job?: any
-  ) { }
+    public contractors?: any,
+    public job?: any,
+    public jobs?: any
+  ) {}
 }

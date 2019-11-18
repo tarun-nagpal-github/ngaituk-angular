@@ -11,6 +11,7 @@ import { AddJobComponent } from "../jobs/add-job/add-job.component";
 import { AddContractorComponent } from "../contractors/add-contractor/add-contractor.component";
 import { TimesheetComponent } from "../timesheet/timesheet.component";
 import { AddTimesheetComponent } from "../timesheet/add-timesheet/add-timesheet.component";
+import { WorkerSelectionComponent } from "../timesheet/worker-selection/worker-selection.component";
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
     component: TimesheetComponent
   },
   {
+    path: "select-workers",
+    component: WorkerSelectionComponent
+  },
+  {
     path: "dashboard",
     component: DashboardComponent
   },
@@ -74,4 +79,4 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

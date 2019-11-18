@@ -23,6 +23,7 @@ import { AddContractorComponent } from "./contractors/add-contractor/add-contrac
 import { TimesheetComponent } from "./timesheet/timesheet.component";
 import { AddTimesheetComponent } from "./timesheet/add-timesheet/add-timesheet.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { WorkerSelectionComponent } from "./timesheet/worker-selection/worker-selection.component";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     AddJobComponent,
     AddContractorComponent,
     TimesheetComponent,
-    AddTimesheetComponent
+    AddTimesheetComponent,
+    WorkerSelectionComponent
   ],
   imports: [
     BrowserModule,

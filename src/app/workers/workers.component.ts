@@ -16,18 +16,16 @@ export class WorkersComponent implements OnInit {
   workersOld: any[];
   showLoader = true;
   constructor(
-    private apiService: ApiService, private apiContractor: ApiContractorService, private router: Router
-  ) { }
+    private apiService: ApiService,
+    private apiContractor: ApiContractorService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    console.log("On INIT Called");
     this.getRecords();
-    this.getContractors();
   }
 
-
   getRecords = () => {
-
     this.apiService.getWorkers().subscribe(res => {
       console.log(res);
       this.showLoader = false;
@@ -35,19 +33,8 @@ export class WorkersComponent implements OnInit {
     });
   };
 
-  getContractors = () => {
-    console.log("Get COntractors Called");
-    this.apiContractor.getContarctors().subscribe(res => {
-      console.log("Get COntractors");
-      console.log(res);
-      console.log("Get COntractors");
-      // this.showLoader = false;
-      // this.workers = res;
-    });
-  };
-
   editRecord = (id = null) => {
-    this.router.navigate(['/add-worker', id]);
+    this.router.navigate(["/add-worker", id]);
   };
 
   deleteRecord = (id = null) => {

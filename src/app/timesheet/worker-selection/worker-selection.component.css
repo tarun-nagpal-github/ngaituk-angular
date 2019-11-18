@@ -1,0 +1,8 @@
+.buttonSection {
+  /* border: 1px solid red; */
+  text-align: center;
+}
+
+.buttonSection button {
+  margin-right: 10px;
+}
