@@ -31,4 +31,8 @@ export class WorkerSelectionComponent implements OnInit {
       this.workers = res;
     });
   };
+
+  goBack = () => {
+    window.history.back();
+  }
 }

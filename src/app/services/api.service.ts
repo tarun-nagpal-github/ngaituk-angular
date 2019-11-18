@@ -72,7 +72,7 @@ export class ApiService {
     console.log("WORKER DATA");
     console.log(body);
     console.log("WORKER DATA");
-    debugger;
+    // debugger;
 
     return this.httpClient.put(
       `${this.apiURL}/workers/createWorker.php`,

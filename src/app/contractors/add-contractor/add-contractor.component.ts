@@ -23,7 +23,7 @@ export class AddContractorComponent implements OnInit {
     this.showLoader = true;
     console.log(this.model);
     console.log("SUBMIT ");
-    debugger;
+    // debugger;
 
     this.apiService.addContractor(this.model).subscribe(
       res => {

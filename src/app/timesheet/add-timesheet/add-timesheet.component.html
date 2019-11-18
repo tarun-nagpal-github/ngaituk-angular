@@ -21,8 +21,8 @@
           </div>
           <div class="col-sm-6">
             <label for="inputLastname">Contractor</label>            
-            <select class="form-control" id="Contractor" [(ngModel)]="model.job">              
-                <option *ngFor="let test of model.contractors" [ngValue]="test.s_no">{{test.c_name}}</option>
+            <select class="form-control" id="Contractor" name="contractor" [(ngModel)]="model.contractor">              
+                <option *ngFor="let test of model.contractors" [ngValue]="test">{{test.c_name}}</option>
             </select>
           </div>
         </div>
@@ -35,7 +35,7 @@
           <div class="col-sm-6">
             <label for="inputAddressLine2">Job</label>
             <select class="form-control" id="job" name="job" [(ngModel)]="model.job" >                
-                <option *ngFor="let test of model.jobs" [ngValue]="test.id"  >{{test.j_title}}</option>
+                <option *ngFor="let test of model.jobs" [ngValue]="test"  >{{test.j_title}}</option>
             </select>
           </div>
         </div>

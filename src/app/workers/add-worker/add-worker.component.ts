@@ -58,13 +58,7 @@ export class AddWorkerComponent implements OnInit {
     return false;
   }
   onSubmit() {
-    this.showLoader = true;
-    console.warn("Form Submittted");
-    console.log("MODAL BEFORE SUBMIT");
-    console.log(this.model);
-    console.log("MODAL BEFORE SUBMIT");
-
-    debugger;
+    this.showLoader = true; 
     this.apiService.addWorker(this.model).subscribe(
       res => {
         this.showLoader = false;

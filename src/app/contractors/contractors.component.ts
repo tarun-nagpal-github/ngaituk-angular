@@ -26,7 +26,7 @@ export class ContractorsComponent implements OnInit {
       console.log("res");
       console.log(res);
       console.log("res");
-      debugger;
+      // debugger;
       this.showLoader = false;
       this.contractors = res.data;
     });
