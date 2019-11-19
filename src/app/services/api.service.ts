@@ -28,7 +28,14 @@ export class ApiService {
     return this.httpClient.get(apiUrl);
   }
 
+  getWorkersByContractor(id = null): Observable<any> {
+    let contractorId = localStorage.getItem("timesheet-data-contractor");
+    let apiUrl = `${this.apiURL}/workers/getWorkersByContractor.php?id=${contractorId}`;
+    return this.httpClient.get(apiUrl);
+  }
+
   geContractors(id = null): Observable<any> {
+    // console.log("GET CONTRACTORS");
     return this.httpClient.get(`${this.apiURL}/contractors/getContractors.php`);
   }
 

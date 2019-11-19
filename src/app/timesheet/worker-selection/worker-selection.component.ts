@@ -25,8 +25,10 @@ export class WorkerSelectionComponent implements OnInit {
   }
 
   getRecords = () => {
-    this.apiService.getWorkers().subscribe(res => {
+    this.apiService.getWorkersByContractor().subscribe(res => {
+      console.log("res --00 ");
       console.log(res);
+      console.log("res --00 ");
       this.showLoader = false;
       this.workers = res;
     });
@@ -34,5 +36,26 @@ export class WorkerSelectionComponent implements OnInit {
 
   goBack = () => {
     window.history.back();
-  }
+  };
+
+  addWorker = ($event = null) => {
+    // console.log("EVENET");
+    console.log($event);
+    // console.log(this.workers);
+    // console.log("EVENET");
+    // debugger;
+
+    this.workers.forEach(item => {
+      if (item.id == $event.target.value) {
+        if ($event.target.checked) {
+          item.isTimeSheet = true;
+        } else {
+          item.isTimeSheet = false;
+        }
+      }
+    });
+
+    console.log(this.workers);
+    debugger;
+  };
 }

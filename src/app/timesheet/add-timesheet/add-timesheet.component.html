@@ -22,7 +22,7 @@
           <div class="col-sm-6">
             <label for="inputLastname">Contractor</label>            
             <select class="form-control" id="Contractor" name="contractor" [(ngModel)]="model.contractor">              
-                <option *ngFor="let test of model.contractors" [ngValue]="test">{{test.c_name}}</option>
+                <option *ngFor="let test of model.contractors" value={{test.s_no}}>{{test.c_name}}</option>
             </select>
           </div>
         </div>

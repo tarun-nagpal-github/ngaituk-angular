@@ -6,15 +6,15 @@ import { Observable, Subscribable } from "rxjs";
   providedIn: "root"
 })
 export class ApiContractorService {
-  // apiURL: string = "http://localhost/ngaituk-php/";
-  apiURL: string = "http://api.ngaituk.online/";
+  apiURL: string = "http://localhost/ngaituk-php/";
+  // apiURL: string = "http://api.ngaituk.online/";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     }),
     responseType: "text" as "json"
   };
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   private extractData(res: Response) {
     let body = res;

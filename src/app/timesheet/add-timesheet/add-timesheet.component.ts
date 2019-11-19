@@ -45,13 +45,13 @@ export class AddTimesheetComponent implements OnInit {
     this.model.date = selectedDate;
   };
 
-  selectWorkers = (id) => {
-    console.log("MODAL VALUES");
-    console.log(this.model);
-    console.log("SELECT WORKERS");
+  selectWorkers = id => {
+    // console.log("MODAL VALUES");
+    // console.log(this.model);
+    // console.log("SELECT WORKERS");
     // debugger;
-    localStorage.setItem('timesheet-data-job', this.model.job.s_no);
-    localStorage.setItem('timesheet-data-contractor', this.model.contractor.s_no);
-    this.router.navigate(['/select-workers']);
+    localStorage.setItem("timesheet-data-job", this.model.job);
+    localStorage.setItem("timesheet-data-contractor", this.model.contractor);
+    this.router.navigate(["/select-workers"]);
   };
 }
