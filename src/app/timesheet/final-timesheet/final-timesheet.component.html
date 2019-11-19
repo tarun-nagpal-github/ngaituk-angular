@@ -1,0 +1,73 @@
+<div  *ngIf="showLoader" class="loader-container"> 
+  <app-loader></app-loader>  
+</div>
+
+<div class="container" *ngIf="!showLoader">
+  <div class="row border-bottom" style="padding: 1%">
+      <div class="col-10">  <h4>Select Workers </h4>  </div>
+      {{workers | json}}
+  </div>
+  <div class="table-responsive" >       
+      <div *ngIf="!workers.length" class="alert alert-primary fade in alert-dismissible show">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true" style="font-size:20px">×</span>
+           </button>    
+           <strong>No Records Found!</strong> Please <a [routerLink]="['/add-timesheet']">Check Contractor</a> to see the list here. 
+      </div>
+    
+  <table *ngIf="workers.length > 0" class="table table-striped ">
+    <thead>
+      <tr>
+       
+        <th scope="col">Employee ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Visa Type</th>
+        <th scope="col">Visa Expiry</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">Finish Time</th>        
+        <th scope="col">Job Code</th>
+        <th scope="col">No Lunch</th>
+        <th scope="col">Total Hours</th>
+      </tr>
+    </thead> 
+  <tbody>   
+        <tr *ngFor="let worker of workers;  let i = index">
+          
+
+            <th scope="row">{{worker.e_id  }}</th>              
+            <td>{{worker.f_name}}  {{worker.l_name  }}</td>
+            <td>{{worker.v_type}}</td>
+            <td>{{worker.v_exp}}</td>
+            <td>{{worker.d_o_b}}</td>              
+            <td>   
+                <input type="time" value="{{worker.startTime}}" id="{{worker.id}}" name="{{worker.id}}" (change)="startTime($event)">
+            </td>
+            <td>
+                <input type="time" value="{{worker.endTime}}" id="{{worker.id}}" name="{{worker.id}}" (change)="endTime($event)">
+            </td>             
+            <td>
+              <!-- {{worker.d_o_b  }} -->
+              <input type="text" value="{{worker.jobCode}}" id="{{worker.id}}" name="{{worker.id}}" (change)="endTime($event)">
+            </td> 
+            <td> 
+                <input type="checkbox"  name="{{worker.f_name}}"   value="{{worker.id}}" (change)="noLunch($event)">
+              </td>
+            <td>{{worker.hours  }}</td> 
+         </tr> 
+    </tbody>
+  </table>
+  <div class="buttonSection">
+
+      
+          <button onclick="" id="save_wr" class="btn btn-primary" type="submit" name="sav_wrkr" Value="Save">Save</button>
+          <a class="btn btn-primary" href="javascript:history.back()">Back</a>
+          <button class="btn btn-primary" type="submit" name="cancel" value="Cancel">Cancel</button>
+          
+  <!-- <button  class="myButton" type="submit"  name="frm_last" class="btn btn-primary" >From Last Day</button>
+              <button  class="myButton" type="submit" class="btn btn-primary"  name="frm_now">From Now</button>
+              <button class="myButton" type="submit" class="btn btn-primary" (click) = "goBack()" >Back</button>
+              <button  class="myButton" type="submit" class="btn btn-primary"  name="cancel" value="Cancel">Cancel</button> -->
+            </div>
+  </div>
+</div>

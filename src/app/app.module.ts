@@ -24,6 +24,7 @@ import { TimesheetComponent } from "./timesheet/timesheet.component";
 import { AddTimesheetComponent } from "./timesheet/add-timesheet/add-timesheet.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { WorkerSelectionComponent } from "./timesheet/worker-selection/worker-selection.component";
+import { FinalTimesheetComponent } from './timesheet/final-timesheet/final-timesheet.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { WorkerSelectionComponent } from "./timesheet/worker-selection/worker-se
     AddContractorComponent,
     TimesheetComponent,
     AddTimesheetComponent,
-    WorkerSelectionComponent
+    WorkerSelectionComponent,
+    FinalTimesheetComponent
   ],
   imports: [
     BrowserModule,

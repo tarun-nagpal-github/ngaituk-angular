@@ -4,16 +4,17 @@ import { ApiContractorService } from ".././../services/api.contractors.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: "app-worker-selection",
-  templateUrl: "./worker-selection.component.html",
-  styleUrls: ["./worker-selection.component.css"]
+  selector: 'app-final-timesheet',
+  templateUrl: './final-timesheet.component.html',
+  styleUrls: ['./final-timesheet.component.css']
 })
-export class WorkerSelectionComponent implements OnInit {
+export class FinalTimesheetComponent implements OnInit {
   data: any;
   foo: any;
   workers: any[];
   workersOld: any[];
-  showLoader = true;
+  showLoader = true;  
+  jobCode = localStorage.getItem("timesheet-data-job")
   constructor(
     private apiService: ApiService,
     private apiContractor: ApiContractorService,
@@ -24,13 +25,28 @@ export class WorkerSelectionComponent implements OnInit {
     this.getRecords();
   }
 
+ 
+  startTime = ($event = null) => {
+    console.log("EVENT CHANGE");
+    console.log($event);
+    console.log("EVENT CHANGE");
+  }
+
   getRecords = () => {
     this.apiService.getWorkersByContractor().subscribe(res => {
-      console.log("res --00 ");
-      console.log(res);
-      console.log("res --00 ");
+      
       this.showLoader = false;
       this.workers = res;
+      // Add additional values
+      this.workers.forEach(item => {
+        item.hours = 8;
+        item.startTime = "07:00";
+        item.endTime = "16:00";
+        item.jobCode = this.jobCode;
+      }); 
+      console.log("FINAL LIST");
+      console.log(this.workers);
+      console.log("FINAL LIST");
     });
   };
 
@@ -38,11 +54,7 @@ export class WorkerSelectionComponent implements OnInit {
     window.history.back();
   };
 
-  goToFinalTimeSheet = () => {
-    this.router.navigate(["/final-timesheet"]);
-  }
-
-  addWorker = ($event = null) => {
+  noLunch = ($event = null) => {
     // console.log("EVENET");
     console.log($event);
     // console.log(this.workers);
@@ -50,13 +62,16 @@ export class WorkerSelectionComponent implements OnInit {
     // debugger;
 
     this.workers.forEach(item => {
-      if (item.id == $event.target.value) {
+      if (item.id == $event.target.value) {        
         if ($event.target.checked) {
-          item.isTimeSheet = true;
+          item.hours = 8.5;
         } else {
-          item.isTimeSheet = false;
+          item.hours = 8;
         }
       }
     });
+
+    console.log(this.workers);
+    debugger;
   };
 }

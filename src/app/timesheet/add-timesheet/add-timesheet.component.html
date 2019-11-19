@@ -35,13 +35,16 @@
           <div class="col-sm-6">
             <label for="inputAddressLine2">Job</label>
             <select class="form-control" id="job" name="job" [(ngModel)]="model.job" >                
-                <option *ngFor="let test of model.jobs" [ngValue]="test"  >{{test.j_title}}</option>
+                <option *ngFor="let test of model.jobs" value={{test.j_code}}  >{{test.j_title}}</option>
             </select>
           </div>
         </div>
+        <div class="buttonSection">
         <button type="button" class=" ml-2 btn btn-primary px-4 float-right" (click)="selectWorkers()">Select Workers</button>
-        <button type="button" class="btn ml-2 btn-primary px-4 float-right">Cancel</button>
-        <button type="button" class="btn ml-2 btn-primary px-4 float-right">Back</button>
+        <button type="button" class="btn ml-2 btn-primary px-4 float-right">Cancel</button>        
+        <a class="btn ml-2 btn-primary px-4 float-right" href="javascript:history.back()">Back</a>
+        </div>
+
       </form>
     </div>
   </div>
