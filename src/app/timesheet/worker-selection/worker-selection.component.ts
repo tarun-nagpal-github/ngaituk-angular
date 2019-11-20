@@ -39,8 +39,9 @@ export class WorkerSelectionComponent implements OnInit {
   };
 
   goToFinalTimeSheet = () => {
+    console.log("FINAL TIMSHEET CLICKED");
     this.router.navigate(["/final-timesheet"]);
-  }
+  };
 
   addWorker = ($event = null) => {
     // console.log("EVENET");

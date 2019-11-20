@@ -4,9 +4,33 @@
 
  <div class="container" *ngIf="!showLoader">
     <div class="row border-bottom" style="padding: 1%">
-        <div class="col-10">  <h4>Select Workers </h4>  </div>
+        <!-- <div class="col-10">  <h4>Select Workers </h4>  </div> -->
         
     </div>
+    <div class="jumbotron">
+
+    <h3>Select Workers</h3>
+    <div class="row">
+    <div class="col-6">
+        <dl>
+            <dt>Date</dt>
+            <dd>DATE</dd>
+            <dt>Contractor</dt>
+            <dd>- white cold drink</dd>
+            
+        </dl>
+    </div>
+    <div class="col-6">
+        <dl>
+            <dt>Job Code</dt>
+            <dd>JOB CODE</dd>
+            <dt>Crew Number</dt>
+            <dd>- 786</dd>
+          </dl> 
+    </div>  
+    </div>
+    </div>
+  
     <div class="table-responsive" >       
         <div *ngIf="!workers.length" class="alert alert-primary fade in alert-dismissible show">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -19,7 +43,7 @@
       <thead>
         <tr>
           <th scope="col">Select Workers</th>
-          <th scope="col">Employee ID</th>
+          <th scope="col">Worker No</th>
           <th scope="col">Name</th>
           <th scope="col">Visa Type</th>
           <th scope="col">Visa Expiry</th>

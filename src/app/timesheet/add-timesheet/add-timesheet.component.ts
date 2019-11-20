@@ -2,21 +2,16 @@ import { Component, OnInit } from "@angular/core";
 import { ApiService } from "../../services/api.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AddTimeSheet } from "./AddTimeSheet";
-
+import { getTodaysDate } from "./../../utils/HelperFunctions";
 @Component({
   selector: "app-add-timesheet",
   templateUrl: "./add-timesheet.component.html",
   styleUrls: ["./add-timesheet.component.css"]
 })
 export class AddTimesheetComponent implements OnInit {
-  model = new AddTimeSheet(
-    { year: 2010, month: 1, day: 1 },
-    "1",
-    "0",
-    [],
-    "0",
-    []
-  );
+  today = getTodaysDate();
+
+  model = new AddTimeSheet(this.today, "1", "0", [], "0", []);
   foo = "Bar";
   title = "Tour of Heroes";
 
