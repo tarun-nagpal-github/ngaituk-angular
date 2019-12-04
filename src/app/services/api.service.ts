@@ -96,6 +96,14 @@ export class ApiService {
     );
   }
 
+  addTimeSheet(body): Observable<any> {
+    return this.httpClient.post(
+      `${this.apiURL}/timesheet/saveTimesheet.php`,
+      body,
+      this.httpOptions
+    );
+  }
+
   addJob(body): Observable<any> {
     return this.httpClient.post(
       `${this.apiURL}/jobs/createjob.php`,

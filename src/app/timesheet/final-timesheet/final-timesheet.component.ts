@@ -25,6 +25,14 @@ export class FinalTimesheetComponent implements OnInit {
     this.getRecords();
   }
 
+  
+  getTimeSheetDate = () => {    
+    let day = window.localStorage.getItem('day');
+    let month = window.localStorage.getItem('month');
+    let year = window.localStorage.getItem('year');
+    return year + "-" + month + "-" + day;    
+  }
+
  
   startTime = ($event = null) => {
     console.log("EVENT CHANGE");
@@ -43,6 +51,7 @@ export class FinalTimesheetComponent implements OnInit {
         item.startTime = "07:00";
         item.endTime = "16:00";
         item.jobCode = this.jobCode;
+        item.date = this.getTimeSheetDate();
       }); 
       console.log("FINAL LIST");
       console.log(this.workers);
@@ -70,7 +79,22 @@ export class FinalTimesheetComponent implements OnInit {
   };
 
   saveTimeSheet = () => {
-    console.log(this.workers);
-    debugger;
+
+    
+    this.apiService.addTimeSheet(this.workers).subscribe(
+      res => {
+        this.showLoader = false;
+        // alert("Record Added Successfully");
+        this.router.navigate(["/timesheet"]);
+        console.log("Response");
+        console.log(res);
+      },
+      error => {
+        console.log("error Logged");
+        console.log(error);
+      }
+    );
+
+  
   }
 }

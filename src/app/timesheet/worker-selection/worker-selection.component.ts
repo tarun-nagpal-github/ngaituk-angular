@@ -48,9 +48,9 @@ export class WorkerSelectionComponent implements OnInit {
 
   getRecords = () => {
     this.apiService.getWorkersByContractor().subscribe(res => {
-      console.log("res --00 ");
+      console.log("getWorkersByContractor");
       console.log(res);
-      console.log("res --00 ");
+      console.log("getWorkersByContractor");
       this.showLoader = false;
       this.workers = res;
     });
@@ -76,7 +76,9 @@ export class WorkerSelectionComponent implements OnInit {
         } else {
           item.isTimeSheet = false;
         }
-        item.date = this.date;
+        item.date = this.getTimeSheetDate();
+        item.crewNum = this.crewNum;
+        item.jobCode = this.jobCode;        
       }
     });
   };
