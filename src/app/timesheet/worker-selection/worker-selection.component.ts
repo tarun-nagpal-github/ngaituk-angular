@@ -20,6 +20,7 @@ export class WorkerSelectionComponent implements OnInit {
   crewNum = "";
   jobCode = "";
   contractor = "";
+  date = "";
   constructor(
     private apiService: ApiService,
     private apiContractor: ApiContractorService,
@@ -31,13 +32,18 @@ export class WorkerSelectionComponent implements OnInit {
     this.getDataFromLocal();
   }
 
-  getDataFromLocal = () => {
+  getTimeSheetDate = () => {    
     this.day = window.localStorage.getItem('day');
     this.month = window.localStorage.getItem('month');
     this.year = window.localStorage.getItem('year');
+    return this.year + "-" + this.month + "-" + this.day;    
+  }
+
+  getDataFromLocal = () => {  
     this.crewNum = window.localStorage.getItem('crew-num');
     this.jobCode = window.localStorage.getItem('timesheet-data-job');
     this.contractor = window.localStorage.getItem('timesheet-data-contractor');
+    this.date = this.getTimeSheetDate();
   }
 
   getRecords = () => {
@@ -55,17 +61,14 @@ export class WorkerSelectionComponent implements OnInit {
   };
 
   goToFinalTimeSheet = () => {
-    console.log("FINAL TIMSHEET CLICKED");
+    console.log("WORKERS DATA");
+    console.log(this.workers);
+    console.log("WORKERS DATA");
+    debugger;
     this.router.navigate(["/final-timesheet"]);
   };
 
   addWorker = ($event = null) => {
-    // console.log("EVENET");
-    console.log($event);
-    // console.log(this.workers);
-    // console.log("EVENET");
-    // debugger;
-
     this.workers.forEach(item => {
       if (item.id == $event.target.value) {
         if ($event.target.checked) {
@@ -73,6 +76,7 @@ export class WorkerSelectionComponent implements OnInit {
         } else {
           item.isTimeSheet = false;
         }
+        item.date = this.date;
       }
     });
   };

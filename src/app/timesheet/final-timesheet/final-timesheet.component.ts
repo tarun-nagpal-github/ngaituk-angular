@@ -36,7 +36,7 @@ export class FinalTimesheetComponent implements OnInit {
     this.apiService.getWorkersByContractor().subscribe(res => {
       
       this.showLoader = false;
-      this.workers = res;
+      this.workers = res;      
       // Add additional values
       this.workers.forEach(item => {
         item.hours = 8;
@@ -55,12 +55,6 @@ export class FinalTimesheetComponent implements OnInit {
   };
 
   noLunch = ($event = null) => {
-    // console.log("EVENET");
-    console.log($event);
-    // console.log(this.workers);
-    // console.log("EVENET");
-    // debugger;
-
     this.workers.forEach(item => {
       if (item.id == $event.target.value) {        
         if ($event.target.checked) {
@@ -74,4 +68,9 @@ export class FinalTimesheetComponent implements OnInit {
     console.log(this.workers);
     debugger;
   };
+
+  saveTimeSheet = () => {
+    console.log(this.workers);
+    debugger;
+  }
 }
