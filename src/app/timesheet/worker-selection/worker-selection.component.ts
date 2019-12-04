@@ -14,6 +14,12 @@ export class WorkerSelectionComponent implements OnInit {
   workers: any[];
   workersOld: any[];
   showLoader = true;
+  day = "";
+  month = "";
+  year = "";
+  crewNum = "";
+  jobCode = "";
+  contractor = "";
   constructor(
     private apiService: ApiService,
     private apiContractor: ApiContractorService,
@@ -22,6 +28,16 @@ export class WorkerSelectionComponent implements OnInit {
 
   ngOnInit() {
     this.getRecords();
+    this.getDataFromLocal();
+  }
+
+  getDataFromLocal = () => {
+    this.day = window.localStorage.getItem('day');
+    this.month = window.localStorage.getItem('month');
+    this.year = window.localStorage.getItem('year');
+    this.crewNum = window.localStorage.getItem('crew-num');
+    this.jobCode = window.localStorage.getItem('timesheet-data-job');
+    this.contractor = window.localStorage.getItem('timesheet-data-contractor');
   }
 
   getRecords = () => {
